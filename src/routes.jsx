@@ -2,11 +2,13 @@ import {
     DollarOutlined,
     HomeOutlined,
     LineChartOutlined,
+    FormOutlined,
 } from "@ant-design/icons";
 import Home from "./pages/Home.jsx";
 import CoinsPage from "./pages/CoinsPage.jsx";
 import CoinsPagedPage from "./pages/CoinsPagedPage.jsx";
 import ChartPage from "./pages/ChartPage.jsx";
+import WizardPage from "./pages/WizardPage.jsx";
 
 export const routes = [
     { path: "/", label: "Home", icon: <HomeOutlined />, element: <Home /> },
@@ -27,5 +29,11 @@ export const routes = [
         label: "Chart",
         icon: <LineChartOutlined />,
         element: <ChartPage />,
+    },
+    {
+        path: "/wizard",
+        label: "Wizard",
+        icon: <FormOutlined />,
+        element: <WizardPage />,
     },
 ];
