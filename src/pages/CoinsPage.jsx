@@ -19,7 +19,13 @@ function CoinsPage() {
         );
     }
 
-    return <CoinsTable dataSource={data ?? []} loading={isLoading} />;
+    return (
+        <CoinsTable
+            dataSource={data ?? []}
+            loading={isLoading}
+            pagination={false}
+        />
+    );
 }
 
 export default CoinsPage;

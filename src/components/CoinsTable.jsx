@@ -6,8 +6,19 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
     maximumFractionDigits: 2,
 });
 
+const compactCurrencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    notation: "compact",
+    maximumFractionDigits: 2,
+});
+
 function formatCurrency(value) {
     return currencyFormatter.format(value ?? 0);
+}
+
+function formatCompactCurrency(value) {
+    return compactCurrencyFormatter.format(value ?? 0);
 }
 
 function formatPercent(value) {
@@ -23,6 +34,7 @@ function CoinsTable({ dataSource, loading, pagination, onChange }) {
             dataIndex: "market_cap_rank",
             key: "rank",
             width: 72,
+            sorter: (a, b) => a.market_cap_rank - b.market_cap_rank,
         },
         {
             title: "Name",
@@ -59,14 +71,14 @@ function CoinsTable({ dataSource, loading, pagination, onChange }) {
             dataIndex: "market_cap",
             key: "marketCap",
             sorter: (a, b) => a.market_cap - b.market_cap,
-            render: formatCurrency,
+            render: formatCompactCurrency,
         },
         {
             title: "24h Volume",
             dataIndex: "total_volume",
             key: "volume24h",
             sorter: (a, b) => a.total_volume - b.total_volume,
-            render: formatCurrency,
+            render: formatCompactCurrency,
         },
     ];
 
